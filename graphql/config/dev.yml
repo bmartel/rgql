@@ -273,17 +273,17 @@ actions:
 #       #   value: Bearer <stripe_api_key>
 
 tables:
-  # - # You can create new fields that have a
-  #   # real db table backing them
-  #   name: Me
-  #   table: User
+  # You can create new fields that have a
+  # real db table backing them
+  - name: me
+    table: users
 
-  # - name: User
-  #   order_by:
-  #     id: [ "id asc" ]
+   - name: users 
+     order_by:
+       id: [ "created_at asc" ]
 
 # Variables used require a type suffix eg. $user_id:bigint
-#roles_query: "SELECT * FROM users WHERE id = $user_id:bigint"
+roles_query: "SELECT * FROM users WHERE id = $user_id:varchar"
 
 roles:
   # if `auth.type` is set to a valid auth type then
@@ -295,34 +295,17 @@ roles:
   #       query:
   #         limit: 10
 
-  # - name: User
-  #   tables:
-  #     - name: Me
-  #       query:
-  #         filters: ["{ id: { _eq: $userId } }"]
-
-      # - name: products
-      #   query:
-      #     limit: 50
-      #     filters: ["{ user_id: { eq: $user_id } }"]
-      #     disable_functions: false
-
-      #   insert:
-      #     filters: ["{ user_id: { eq: $user_id } }"]
-      #     presets:
-      #       - user_id: "$user_id"
-      #       - created_at: "now"
-            
-      #   update:
-      #     filters: ["{ user_id: { eq: $user_id } }"]
-      #     presets:
-      #       - updated_at: "now"
+  - name: user
+    tables:
+      - name: me
+        query:
+          filters: ["{ id: { eq: $user_id } }"]
 
       #   delete:
       #     block: true
 
-  # - name: admin
-  #   match: id = 1000
-  #   tables:
-  #     - name: users
-  #       filters: []
+   - name: admin
+     match: role = "admin"
+     tables:
+       - name: users
+         filters: []
