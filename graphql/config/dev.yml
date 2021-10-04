@@ -237,9 +237,9 @@ header_variables:
 blocklist:
   - ar_internal_metadata
   - _prisma_migrations
-  - Account
-  - Session
-  - VerificationToken
+  - accounts 
+  - sessions 
+  - verification_tokens 
   - schema_migrations
   - secret
   - password
