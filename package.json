@@ -12,7 +12,7 @@
     "prisma:init": "yarn prisma:migration && yarn prisma:generate",
     "prisma:migrate": "prisma db push",
     "prisma:migration": "prisma migrate dev",
-    "prisma:generate": "prisma db generate",
+    "prisma:generate": "prisma generate",
     "prisma:sync": "prisma db pull"
   },
   "dependencies": {
