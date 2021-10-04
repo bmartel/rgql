@@ -37,6 +37,12 @@ Create + migrate initial db schema
 yarn prisma:init
 ```
 
+Restart the api to pickup graphql changes (it will have crashed with no tables on initial migration)
+
+```bash
+docker-compose -f graphql/docker-compose.yml restart api
+```
+
 ## Getting Started
 
 First, run the development server:
