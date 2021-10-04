@@ -236,6 +236,10 @@ header_variables:
 # Field and table names that you wish to block
 blocklist:
   - ar_internal_metadata
+  - _prisma_migrations
+  - Account
+  - Session
+  - VerificationToken
   - schema_migrations
   - secret
   - password
