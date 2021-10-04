@@ -1,5 +1,10 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+Uses [NextAuth](https://next-auth.js.org/getting-started/introduction)
+
+SSR configuration
+https://next-auth.js.org/tutorials/securing-pages-and-api-routes
+
 ## Install dependencies
 
 ```bash
@@ -14,22 +19,22 @@ cp .env.example .env
 
 ## Setup Graphql + Postgres
 
+Start postgres + graphql
+
+```bash
+docker-compose -f graphql/docker-compose.yml up -d
+```
+
 Create the development db
 
 ```bash
 docker-compose -f graphql/docker-compose.yml run api db create
 ```
 
-Migrate initial db schema
+Create + migrate initial db schema
 
 ```bash
-yarn prisma:migrate
-```
-
-Start postgres + graphql
-
-```bash
-docker-compose -f graphql/docker-compose.yml up -d
+yarn prisma:init
 ```
 
 ## Getting Started
