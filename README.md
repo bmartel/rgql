@@ -19,12 +19,6 @@ cp .env.example .env
 
 ## Setup Graphql + Postgres
 
-Start postgres + graphql
-
-```bash
-docker-compose -f graphql/docker-compose.yml up -d
-```
-
 Create the development db
 
 ```bash
@@ -37,10 +31,16 @@ Create + migrate initial db schema
 yarn prisma:init
 ```
 
-Restart the api to pickup graphql changes (it will have crashed with no tables on initial migration)
+Start postgres + graphql
 
 ```bash
-docker-compose -f graphql/docker-compose.yml restart api
+docker-compose -f graphql/docker-compose.yml up -d
+```
+
+Generate typescript types from schema
+
+```bash
+yarn graphql:types
 ```
 
 ## Getting Started

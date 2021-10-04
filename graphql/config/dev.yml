@@ -269,15 +269,14 @@ actions:
 #       #   value: Bearer <stripe_api_key>
 
 tables:
-  - # You can create new fields that have a
-    # real db table backing them
-    name: me
-    table: users
+  # - # You can create new fields that have a
+  #   # real db table backing them
+  #   name: Me
+  #   table: User
 
-  - name: users
-    order_by:
-      new_users: [ "created_at desc", "id asc" ]
-      id: [ "id asc" ]
+  # - name: User
+  #   order_by:
+  #     id: [ "id asc" ]
 
 # Variables used require a type suffix eg. $user_id:bigint
 #roles_query: "SELECT * FROM users WHERE id = $user_id:bigint"
@@ -292,11 +291,11 @@ roles:
   #       query:
   #         limit: 10
 
-  - name: user
-    tables:
-      - name: me
-        query:
-          filters: ["{ id: { _eq: $user_id } }"]
+  # - name: User
+  #   tables:
+  #     - name: Me
+  #       query:
+  #         filters: ["{ id: { _eq: $userId } }"]
 
       # - name: products
       #   query:
