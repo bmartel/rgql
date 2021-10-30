@@ -3,7 +3,7 @@
 inherits: dev
 
 app_name: "App Production"
-host_port: 0.0.0.0:8080
+host_port: 0.0.0.0:9071
 web_ui: false
 
 # Log levels: debug, error, warn, info

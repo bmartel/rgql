@@ -278,12 +278,12 @@ tables:
   - name: me
     table: users
 
-   - name: users 
-     order_by:
-       id: [ "created_at asc" ]
+    - name: users 
+      order_by:
+        id: [ "created_at asc" ]
 
 # Variables used require a type suffix eg. $user_id:bigint
-roles_query: "SELECT * FROM users WHERE id = $user_id:varchar"
+roles_query: "SELECT * FROM users WHERE id = $user_id:varchar"
 
 roles:
   # if `auth.type` is set to a valid auth type then
@@ -304,8 +304,8 @@ roles:
       #   delete:
       #     block: true
 
-   - name: admin
-     match: role = "admin"
-     tables:
-       - name: users
-         filters: []
+  - name: admin
+    match: role = "admin"
+    tables:
+      - name: users
+        filters: []
