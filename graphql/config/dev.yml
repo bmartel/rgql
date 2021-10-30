@@ -277,13 +277,12 @@ tables:
   # real db table backing them
   - name: me
     table: users
-
-    - name: users 
-      order_by:
-        id: [ "created_at asc" ]
+  - name: users 
+    order_by:
+      id: [ "created_at asc" ]
 
 # Variables used require a type suffix eg. $user_id:bigint
-roles_query: "SELECT * FROM users WHERE id = $user_id:varchar"
+roles_query: "SELECT * FROM users WHERE id = $user_id:string"
 
 roles:
   # if `auth.type` is set to a valid auth type then
