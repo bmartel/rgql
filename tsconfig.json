@@ -3,8 +3,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@/graphql/*": ["graphql/*"],
-      "@/lib/*": ["lib/*"]
+      "@pages/*": ["pages/*"],
+      "@graphql/*": ["graphql/*"],
+      "@lib/*": ["lib/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -19,8 +20,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "downlevelIteration": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "incremental": true
   },
-  "include": ["types", "src/**/*.ts", "lib/**/*.ts", "graphql/**/*.ts", "src/**/*.tsx"],
+  "include": [
+    "types",
+    "src/**/*.ts",
+    "pages/**/*.ts",
+    "lib/**/*.ts",
+    "graphql/**/*.ts",
+    "src/**/*.tsx",
+    "pages/**/*.tsx"
+  ],
   "exclude": ["node_modules"]
 }
