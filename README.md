@@ -17,24 +17,18 @@ yarn install
 cp .env.example .env
 ```
 
-## Setup Graphql + Postgres
+## Setup Dgraph
 
-Create the development db
+Create the db
 
 ```bash
-docker-compose -f graphql/docker-compose.yml run api db create
+make dgraph
 ```
 
 Create + migrate initial db schema
 
 ```bash
-yarn prisma:init
-```
-
-Start postgres + graphql
-
-```bash
-docker-compose -f graphql/docker-compose.yml up -d
+make migrate
 ```
 
 Generate typescript types from schema
