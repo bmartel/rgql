@@ -22,15 +22,17 @@ export class DgraphClient {
   endpoint: string
   headers: HeadersInit
   constructor({ endpoint, apiKey, adminSecret, jwtSecret, authHeader }: DGraphConstructor) {
-    if (!apiKey) {
-      throw new Error('Dgraph client error: Please provide an api key')
-    }
     if (!endpoint) {
       throw new Error('Dgraph client error: Please provide a graphql endpoint')
     }
     const headers = {
       'Content-Type': 'application/json',
-      'X-Auth-Token': apiKey,
+    }
+
+    if (apiKey) {
+      Object.assign(headers, {
+        'X-Auth-Token': apiKey,
+      })
     }
 
     if (!!authHeader && !!adminSecret && !!jwtSecret) {

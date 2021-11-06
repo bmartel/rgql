@@ -54,7 +54,7 @@ export interface CreateVerificationRequestInput {
 
 export interface DGraphConstructor {
   endpoint: string
-  apiKey: string
+  apiKey?: string
   jwtSecret?: string
   adminSecret?: string
   authHeader?: string
