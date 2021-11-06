@@ -31,7 +31,7 @@ export class DgraphClient {
 
     if (apiKey) {
       Object.assign(headers, {
-        'X-Auth-Token': apiKey,
+        'Dg-Auth': apiKey,
       })
     }
 
