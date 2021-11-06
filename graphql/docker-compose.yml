@@ -1,24 +1,29 @@
+# This Docker Compose file can be used to quickly bootup Dgraph Zero
+# and Alpha in different Docker containers.
+
+# It mounts /tmp/data on the host machine to /dgraph within the
+# container. You can change /tmp/data to a more appropriate location.
+# Run `docker-compose up` to start Dgraph.
+
 version: "3.7"
 services:
-  # Postgres DB
-  db:
-    image: postgres:12
-    env_file: ../.env
-    ports:
-      - "5432:5432"
+  zero:
+    image: dgraph/dgraph:latest
     volumes:
-      - db_data:/var/lib/postgresql/data
-
-  api:
-    image: dosco/graphjin:latest
-    environment:
-      GO_ENV: "development"
-    volumes:
-      - ./config:/config
+      - data:/dgraph
     ports:
-      - "9071:9071"
-    depends_on:
-      - db
-
+      - 5080:5080
+      - 6080:6080
+    restart: on-failure
+    command: dgraph zero --my=zero:5080
+  alpha:
+    image: dgraph/dgraph:latest
+    volumes:
+      - data:/dgraph
+    ports:
+      - 8080:8080
+      - 9080:9080
+    restart: on-failure
+    command: dgraph alpha --my=alpha:7080 --zero=zero:5080 --security "whitelist=10.0.0.0/8,172.16.0.0/12,192.168.0.0/16;"
 volumes:
-  db_data:
+  data:

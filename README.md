@@ -5,6 +5,16 @@ Uses [NextAuth](https://next-auth.js.org/getting-started/introduction)
 SSR configuration
 https://next-auth.js.org/tutorials/securing-pages-and-api-routes
 
+## Quick Setup
+
+This will perform all the below commands in sequence, and have a fully running application stack in one command.
+
+```bash
+make dev
+```
+
+open http://localhost:3000
+
 ## Install dependencies
 
 ```bash
@@ -14,27 +24,21 @@ yarn install
 ## Copy sample .env
 
 ```bash
-cp .env.example .env
+make envfile
 ```
 
-## Setup Graphql + Postgres
+## Setup Dgraph
 
-Create the development db
+Create the db
 
 ```bash
-docker-compose -f graphql/docker-compose.yml run api db create
+make dgraph
 ```
 
 Create + migrate initial db schema
 
 ```bash
-yarn prisma:init
-```
-
-Start postgres + graphql
-
-```bash
-docker-compose -f graphql/docker-compose.yml up -d
+make migrate
 ```
 
 Generate typescript types from schema
@@ -43,12 +47,20 @@ Generate typescript types from schema
 yarn graphql:types
 ```
 
-## Getting Started
+## Development server
 
 First, run the development server:
 
 ```bash
 yarn dev
+```
+
+## PWA assets
+
+Generate and update pwa assets to point your logo (defaults to nextjs logo)
+
+```bash
+make pwa SVG_PATH=/path/to/logo.svg
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
