@@ -77,6 +77,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 - [Dgraph Overview](https://dgraph.io/docs/dgraph-overview/) - documentation overview.
 - [Message Board Tutorial](https://dgraph.io/learn/courses/messageboardapp/react/overview/introduction/) - react focused tutorial on using dgraph.
+- [Authn/Authz](https://dgraph.io/docs/graphql/authorization/authorization-overview/) - how to manage auth in dgraph.
 
 ### NextAuth
 
