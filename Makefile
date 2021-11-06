@@ -16,7 +16,16 @@ graphiql:
 cleanup:
 	docker-compose -f graphql/docker-compose.yml down -v
 
-setup: envfile schema dgraph migrate
+install:
+	yarn install
+
+types:
+	yarn graphql:types
+
+setup: install envfile schema dgraph migrate types
+
+pwa:
+	npx pwa-asset-generator $(SVG_PATH) ./public/icons --manifest=./public/manifest.json --path-override=/icons --quality=80 --mstile --favicon --portrait-only --xhtml  
 
 dev: setup
 	yarn dev
