@@ -25,7 +25,7 @@ types:
 setup: install envfile schema dgraph migrate types
 
 pwa:
-	npx pwa-asset-generator $(SVG_PATH) ./public/icons --manifest=./public/manifest.json --path-override=/icons --quality=80 --mstile --favicon --portrait-only --xhtml  
+	npx pwa-asset-generator $(SVG_PATH) ./public/icons --manifest=./public/manifest.json --path-override=/icons --quality=80 --opaque=false --mstile --favicon --portrait-only --xhtml  
 
 dev: setup
 	yarn dev
