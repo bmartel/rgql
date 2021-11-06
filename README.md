@@ -1,10 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Uses [NextAuth](https://next-auth.js.org/getting-started/introduction)
-
-SSR configuration
-https://next-auth.js.org/tutorials/securing-pages-and-api-routes
-
 ## Quick Setup
 
 This will perform all the below commands in sequence, and have a fully running application stack in one command.
@@ -73,15 +68,32 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+### NextJS
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Dgraph
+
+- [Dgraph Overview](https://dgraph.io/docs/dgraph-overview/) - documentation overview.
+- [Message Board Tutorial](https://dgraph.io/learn/courses/messageboardapp/react/overview/introduction/) - react focused tutorial on using dgraph.
+
+### NextAuth
+
+- [NextAuth Introduction](https://next-auth.js.org/getting-started/introduction) - general introduction to usage
+- [SSR Configuration](https://next-auth.js.org/tutorials/securing-pages-and-api-routes) - how to secure and configure pages/api routes
+
+### Twin.Macro
+
+- [GitHub Repo](https://github.com/ben-rogerson/twin.macro)
+
+### Stitches
+
+- [Documentation Introduction](https://stitches.dev/docs/introduction)
+- [GitHub Repo](https://github.com/modulz/stitches)
 
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check out [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
