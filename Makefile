@@ -1,8 +1,14 @@
 dgraph:
 	docker-compose -f graphql/docker-compose.yml up -d
 
+envfile:
+	./scripts/env.sh
+
+schema:
+	yarn schema
+
 migrate:
-	curl -X POST localhost:8080/admin/schema --data-binary '@graphql/schema.graphql'
+	./scripts/migrate.sh
 
 graphiql:
 	npx serve -p 8081 -s graphql
@@ -10,7 +16,7 @@ graphiql:
 cleanup:
 	docker-compose -f graphql/docker-compose.yml down -v
 
-setup: dgraph migrate
+setup: envfile schema dgraph migrate
 
 dev: setup
 	yarn dev

@@ -1,0 +1,102 @@
+type Account
+  @auth(
+    delete: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+    add: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+    query: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+    update: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+  ) {
+  id: ID
+  type: String
+  provider: String @search(by: [hash])
+  providerAccountId: String @search(by: [hash])
+  refreshToken: String
+  expires_at: DateTime
+  accessToken: String
+  token_type: String
+  refresh_token: String
+  access_token: String
+  scope: String
+  id_token: String
+  session_state: String
+  oauth_token_secret: String
+  oauth_token: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  user: User @hasInverse(field: "accounts")
+}
+type Session
+  @auth(
+    delete: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+    add: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+    query: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+    update: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+  ) {
+  id: ID
+  expires: DateTime
+  sessionToken: String @search(by: [hash])
+  createdAt: DateTime
+  updatedAt: DateTime
+  user: User @hasInverse(field: "sessions")
+}
+type User
+  @auth(
+    query: {
+      or: [
+        {
+          rule: """
+          query ($userId: String!) {queryUser(filter: { id: { eq: $userId } } ) {id}}
+          """
+        }
+        { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+      ]
+    }
+    delete: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+    add: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+    update: {
+      or: [
+        {
+          rule: """
+          query ($userId: String!) {queryUser(filter: { id: { eq: $userId } } ) {id}}
+          """
+        }
+        { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+      ]
+    }
+  ) {
+  id: ID
+  name: String
+  email: String @search(by: [hash])
+  emailVerified: DateTime
+  image: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  accounts: [Account] @hasInverse(field: "user")
+  sessions: [Session] @hasInverse(field: "user")
+  tasks: [Task] @hasInverse(field: "user")
+}
+
+type VerificationRequest
+  @auth(
+    delete: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+    add: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+    query: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+    update: { rule: "{$adminSecret: { eq: \"<ADMIN_SECRET>\" } }" }
+  ) {
+  id: ID
+  identifier: String @search(by: [hash])
+  token: String @search(by: [hash])
+  expires: DateTime
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type Task {
+  id: ID!
+  title: String! @search(by: [fulltext])
+  completed: Boolean! @search
+  user: User!
+  parent: Task @hasInverse(field: "subtasks")
+  subtasks: [Task]
+}
+
+# Dgraph.Authorization {"VerificationKey":"<JWT_SECRET>","Header":"<AUTH_HEADER>","Namespace":"<CUSTOM_NAMESPACE>","Algo":"HS256"}
