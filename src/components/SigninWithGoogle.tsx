@@ -1,5 +1,5 @@
+import { useAuth } from '@/hooks/supabase'
 import { FC } from 'react'
-import { signIn, signOut, useSession } from 'next-auth/react'
 import tw, { styled } from 'twin.macro'
 
 const Button = styled.button({
@@ -13,17 +13,17 @@ const Button = styled.button({
 })
 
 export const SigninWithGoogle: FC = () => {
-  const { data: session, status } = useSession()
+  const { user, login, logout } = useAuth()
 
-  if (status === 'authenticated') {
+  if (user) {
     return (
-      <Button google onClick={() => signOut()}>
-        Sign out {session?.user?.email}
+      <Button google onClick={logout}>
+        Sign out {user.email}
       </Button>
     )
   }
   return (
-    <Button google onClick={() => signIn('google')}>
+    <Button google onClick={() => login({ provider: 'google' })}>
       Sign in with Google
     </Button>
   )

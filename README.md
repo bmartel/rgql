@@ -1,9 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Uses [NextAuth](https://next-auth.js.org/getting-started/introduction)
-
-SSR configuration
-https://next-auth.js.org/tutorials/securing-pages-and-api-routes
+Ensure [supabase/cli](https://github.com/supabase/cli) is installed
 
 ## Install dependencies
 
@@ -17,30 +14,12 @@ yarn install
 cp .env.example .env
 ```
 
-## Setup Graphql + Postgres
+## Setup Supabase
 
-Create the development db
-
-```bash
-docker-compose -f graphql/docker-compose.yml run api db create
-```
-
-Create + migrate initial db schema
+Create and run the development supabase stack
 
 ```bash
-yarn prisma:init
-```
-
-Start postgres + graphql
-
-```bash
-docker-compose -f graphql/docker-compose.yml up -d
-```
-
-Generate typescript types from schema
-
-```bash
-yarn graphql:types
+supabase start
 ```
 
 ## Getting Started

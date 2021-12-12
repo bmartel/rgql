@@ -1,14 +1,5 @@
 import { SigninWithGoogle } from '@/components/SigninWithGoogle'
-import type { NextPage, NextPageContext } from 'next'
-import { getSession } from 'next-auth/react'
-
-export async function getServerSideProps(ctx: NextPageContext) {
-  return {
-    props: {
-      session: await getSession(ctx),
-    },
-  }
-}
+import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
   return (
