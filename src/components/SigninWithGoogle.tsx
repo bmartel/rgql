@@ -4,7 +4,7 @@ import { useAuth } from '@/hooks/supabase'
 
 const Button = styled.button({
   // Spread the base styles
-  ...tw`bg-purple-500 hover:bg-purple-600 text-white transition-colors duration-200 ease-out  font-bold py-2 px-4 rounded`,
+  ...tw`bg-purple-500 hover:bg-purple-600 text-white transition-colors duration-200 ease-out font-bold py-2 px-4 rounded inline-flex items-center space-x-2`,
   // Add conditional styling in the variants object
   // https://stitches.dev/docs/variants
   variants: {
@@ -18,7 +18,8 @@ export const SigninWithGoogle: FC = () => {
   if (user) {
     return (
       <Button google onClick={logout}>
-        Sign out {user.email}
+        <span>Sign out</span>{' '}
+        <img tw="h-6 w-6 rounded-full overflow-hidden" src={user.avatar_url} />
       </Button>
     )
   }
