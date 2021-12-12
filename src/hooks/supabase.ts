@@ -6,11 +6,9 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY
 export const client = createClient(supabaseUrl!, supabaseKey!)
 
-const supabaseAtom = atom<SupabaseClient>(client)
-const userAtom = atom<AuthUser | null>(null)
-const userLoadingAtom = atom<boolean>(true)
-
-export const useSupabase = () => useAtom(supabaseAtom)
+export const supabaseAtom = atom<SupabaseClient>(client)
+export const userAtom = atom<AuthUser | null>(null)
+export const userLoadingAtom = atom<boolean>(true)
 
 export interface UseAuthReturn {
   user: AuthUser | null
@@ -18,7 +16,8 @@ export interface UseAuthReturn {
   logout: () => Promise<void>
   loading: boolean
 }
-export const useAuth = () => {
+
+export const useAuth = (): UseAuthReturn => {
   const [user, setUser] = useAtom(userAtom)
   const [loading, setLoading] = useAtom(userLoadingAtom)
 

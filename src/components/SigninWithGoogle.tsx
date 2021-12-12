@@ -1,6 +1,6 @@
-import { useAuth } from '@/hooks/supabase'
 import { FC } from 'react'
 import tw, { styled } from 'twin.macro'
+import { useAuth } from '@/hooks/supabase'
 
 const Button = styled.button({
   // Spread the base styles
