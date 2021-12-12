@@ -1384,10 +1384,10 @@
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"
   integrity sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==
 
-"@interstice/jql@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@interstice/jql/-/jql-0.0.9.tgz#0f1d39e235d9f88a073a409358362e0ffb46bf99"
-  integrity sha512-gsngNi9u0fOGVHqaLTeb72moC+toQLAULNlzlcMsZ0fifBEMqdXzuhTwzBp1rPgDTotIszZvkXJIR11p+cEwvg==
+"@interstice/jql@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@interstice/jql/-/jql-0.0.10.tgz#f33a3a7bfc1e7822ee98fd7f263ec552c7abf860"
+  integrity sha512-T5ZE6Gi9MLxbfQp/knobuXteAjuAq1dbkSD5KuygC+a4WMXXkbIFVLExRvy1uFdJtZwiHx8Kdd6Fc9D/a1Jmng==
 
 "@n1ru4l/graphql-live-query@0.8.1":
   version "0.8.1"
@@ -4028,10 +4028,10 @@ graphql-ws@^5.4.1:
   resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-5.5.5.tgz#f375486d3f196e2a2527b503644693ae3a8670a9"
   integrity sha512-hvyIS71vs4Tu/yUYHPvGXsTgo0t3arU820+lT5VjZS2go0ewp2LqyCgxEN56CzOG7Iys52eRhHBiD1gGRdiQtw==
 
-graphql@^16.0.1:
-  version "16.0.1"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.0.1.tgz#93a13cd4e0e38ca8d0832e79614c8578bfd34f10"
-  integrity sha512-oPvCuu6dlLdiz8gZupJ47o1clgb72r1u8NDBcQYjcV6G/iEdmE11B1bBlkhXRvV0LisP/SXRFP7tT6AgaTjpzg==
+graphql@^15.6.1:
+  version "15.8.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.8.0.tgz#33410e96b012fa3bdb1091cc99a94769db212b38"
+  integrity sha512-5gghUc24tP9HRznNpV2+FIoq3xKkj5dTQqf4v0CpdPbFVwFkWoxOM+o+2OC9ZSvjEMTjfmG9QT+gcvggTwW1zw==
 
 has-ansi@^2.0.0:
   version "2.0.0"
